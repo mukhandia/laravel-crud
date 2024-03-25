@@ -1,23 +1,13 @@
 <x-layout>
-    <div class="note-container">
-        <a href="#" class="new-note-button">
-            New Note
-        </a>
-        <div class="notes">
-            
-                <div class="note">
-                    <div class="note-body">
-                     
-                    </div>
-
-                </div>
-                <div class="note-buttons">
-                    <a href="#" class="note-view-button">View</a>
-                    <a href="#" class="note-edit-button">Edit</a>
-                    <a href="#" class="note-delete buttom">Delete</a>
-                </div>
-         
-        </div>
-
+    <div class="note-container single-note">
+        <h1>Create new note</h1>
+        <form action="{{ route('note.store') }}" method="POST" class="note">
+            @csrf
+            <textarea name="note" rows="10" class="note-body" placeholder="Enter your note here"></textarea>
+            <div class="note-buttons">
+                <a href="{{ route('note.index') }}" class="note-cancel-button">Cancel</a>
+                <button class="note-submit-button">Submit</button>
+            </div>
+        </form>
     </div>
 </x-layout>
